@@ -49,24 +49,14 @@ const bundle = () => ({
 
 export default {
   input: "src/index.js",
-  // Svelte is provided by the Budibase host at runtime — do NOT bundle it.
-  // The globals below must match what Budibase exposes on window.
-  external: (id) => id === "svelte" || id.startsWith("svelte/"),
+  // Bundle Svelte fully — Budibase 3.35.x does not expose Svelte internals
+  // as window globals (only __svelte devtools hook exists on window).
+  external: [],
   output: {
     format: "iife",
     file: "dist/plugin.min.js",
     name: "plugin",
     sourcemap: true,
-    globals: (id) => {
-      if (id === "svelte/store")      return "svelteStore"
-      if (id === "svelte/transition") return "svelteTransition"
-      if (id === "svelte/animate")    return "svelteAnimate"
-      if (id === "svelte/motion")     return "svelteMotion"
-      if (id === "svelte/easing")     return "svelteEasing"
-      if (id === "svelte/events")     return "svelteEvents"
-      if (id.startsWith("svelte/internal")) return "svelteInternal"
-      return "svelte"
-    },
   },
   plugins: [
     clean(),
