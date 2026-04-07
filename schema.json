@@ -1,7 +1,7 @@
 {
   "type": "component",
   "metadata": {
-    "svelteMajor": 4
+    "svelteMajor": 5
   },
   "schema": {
     "name": "AutocompleteSearch",
