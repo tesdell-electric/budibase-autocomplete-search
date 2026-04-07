@@ -1,6 +1,6 @@
 {
   "name": "autocomplete-search",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Mobile-first searchable autocomplete for Budibase — calls queries directly, no premium data provider needed.",
   "keywords": [
     "budibase-plugin"

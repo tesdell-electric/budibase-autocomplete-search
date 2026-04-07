@@ -11,11 +11,6 @@
     "hasChildren": false,
     "settings": [
       {
-        "type": "info",
-        "key": "versionInfo",
-        "body": "Autocomplete Search v1.0.2 — tesdell-electric/budibase-autocomplete-search"
-      },
-      {
         "type": "text",
         "key": "queryId",
         "label": "Query ID (direct — takes priority)"
