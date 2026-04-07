@@ -1,0 +1,247 @@
+{
+  "type": "component",
+  "metadata": {},
+  "schema": {
+    "name": "Autocomplete Search",
+    "friendlyName": "Autocomplete Search",
+    "description": "Mobile-first searchable autocomplete. Calls a Budibase query directly — no premium data provider needed. 300 ms debounce, 44 px tap targets, full loading & error states.",
+    "icon": "Search",
+    "hasChildren": false,
+    "settings": [
+      {
+        "type": "section",
+        "name": "Data",
+        "settings": [
+          {
+            "type": "text",
+            "key": "queryId",
+            "label": "Query ID (direct)",
+            "info": "Paste the Budibase internal query ID here. Takes priority over Query Name. Find it in Settings → Data → your query → the ID in the URL or JSON export."
+          },
+          {
+            "type": "text",
+            "key": "queryName",
+            "label": "Query Name (fallback lookup)",
+            "defaultValue": "qry_SearchCustomers",
+            "info": "Used only when Query ID is blank. The plugin will look up the query by this name at runtime."
+          },
+          {
+            "type": "text",
+            "key": "searchParam",
+            "label": "Search Binding Name",
+            "defaultValue": "search",
+            "info": "The binding variable in your query (e.g. {{ search }})"
+          }
+        ]
+      },
+      {
+        "type": "section",
+        "name": "Display Fields",
+        "settings": [
+          {
+            "type": "text",
+            "key": "placeholder",
+            "label": "Placeholder Text",
+            "defaultValue": "Search customers…"
+          },
+          {
+            "type": "text",
+            "key": "displayField",
+            "label": "Primary Display Field",
+            "defaultValue": "BName",
+            "info": "Column name shown in bold on each result row."
+          },
+          {
+            "type": "text",
+            "key": "cityField",
+            "label": "City Field",
+            "defaultValue": "BCity"
+          },
+          {
+            "type": "text",
+            "key": "stateField",
+            "label": "State Field",
+            "defaultValue": "BST"
+          },
+          {
+            "type": "text",
+            "key": "zipField",
+            "label": "Zip Field",
+            "defaultValue": "BZip10"
+          }
+        ]
+      },
+      {
+        "type": "section",
+        "name": "Output Field Mapping",
+        "settings": [
+          {
+            "type": "text",
+            "key": "acctField",
+            "label": "Account # Column",
+            "defaultValue": "Acct",
+            "info": "Integer — emitted as Acct in the onChange event."
+          },
+          {
+            "type": "text",
+            "key": "bNameField",
+            "label": "Business Name Column",
+            "defaultValue": "BName",
+            "info": "Emitted as BName."
+          },
+          {
+            "type": "text",
+            "key": "labCodeField",
+            "label": "Lab Code Column",
+            "defaultValue": "LabCode",
+            "info": "Emitted as LabCode. Empty string if null."
+          },
+          {
+            "type": "text",
+            "key": "taxCodeField",
+            "label": "Tax Code Column",
+            "defaultValue": "TaxCode",
+            "info": "Emitted as TaxCode."
+          },
+          {
+            "type": "text",
+            "key": "taxExemptField",
+            "label": "Tax Exempt Column",
+            "defaultValue": "TaxExempt",
+            "info": "Emitted as TaxExempt (boolean)."
+          }
+        ]
+      },
+      {
+        "type": "section",
+        "name": "Behavior",
+        "settings": [
+          {
+            "type": "number",
+            "key": "minChars",
+            "label": "Minimum Characters",
+            "defaultValue": 3
+          },
+          {
+            "type": "number",
+            "key": "debounceMs",
+            "label": "Debounce (ms)",
+            "defaultValue": 300
+          },
+          {
+            "type": "boolean",
+            "key": "showAddNew",
+            "label": "Show 'Add New' Option",
+            "defaultValue": true
+          },
+          {
+            "type": "text",
+            "key": "addNewLabel",
+            "label": "'Add New' Label",
+            "defaultValue": "Customer not found — Add New"
+          }
+        ]
+      },
+      {
+        "type": "section",
+        "name": "Colours",
+        "settings": [
+          {
+            "type": "color",
+            "key": "primaryColor",
+            "label": "Accent / Primary",
+            "defaultValue": "#6366f1",
+            "info": "Used for focus ring, spinner, 'Add New' text, and hover highlights."
+          },
+          {
+            "type": "color",
+            "key": "inputBg",
+            "label": "Input Background",
+            "defaultValue": "#ffffff"
+          },
+          {
+            "type": "color",
+            "key": "dropdownBg",
+            "label": "Dropdown Background",
+            "defaultValue": "#ffffff"
+          },
+          {
+            "type": "color",
+            "key": "borderColor",
+            "label": "Border Colour",
+            "defaultValue": "#e2e8f0"
+          },
+          {
+            "type": "color",
+            "key": "textColor",
+            "label": "Text Colour",
+            "defaultValue": "#1e293b"
+          },
+          {
+            "type": "color",
+            "key": "mutedColor",
+            "label": "Muted / Secondary Text",
+            "defaultValue": "#64748b"
+          }
+        ]
+      },
+      {
+        "type": "section",
+        "name": "Sizing & Shape",
+        "settings": [
+          {
+            "type": "number",
+            "key": "inputHeight",
+            "label": "Input Height (px)",
+            "defaultValue": 48,
+            "info": "Minimum 44 px recommended for mobile."
+          },
+          {
+            "type": "number",
+            "key": "borderRadius",
+            "label": "Border Radius (px)",
+            "defaultValue": 10
+          },
+          {
+            "type": "number",
+            "key": "fontSize",
+            "label": "Font Size (px)",
+            "defaultValue": 15
+          },
+          {
+            "type": "number",
+            "key": "dropdownMaxHeight",
+            "label": "Dropdown Max Height (px)",
+            "defaultValue": 320,
+            "info": "Dropdown scrolls beyond this height."
+          }
+        ]
+      },
+      {
+        "type": "section",
+        "name": "Events",
+        "settings": [
+          {
+            "type": "event",
+            "key": "onChange",
+            "label": "On Selection",
+            "info": "Fires when the user taps a result. Use Event data bindings to read the selected customer fields.",
+            "context": [
+              { "label": "Account Number (Acct)", "key": "Acct" },
+              { "label": "Business Name (BName)", "key": "BName" },
+              { "label": "Lab Code (LabCode)", "key": "LabCode" },
+              { "label": "Tax Code (TaxCode)", "key": "TaxCode" },
+              { "label": "Tax Exempt (TaxExempt)", "key": "TaxExempt" }
+            ]
+          },
+          {
+            "type": "event",
+            "key": "onAddNewCustomer",
+            "label": "On Add New Customer",
+            "info": "Fires when the user taps 'Add New'. No data payload — wire this to your Navigate action."
+          }
+        ]
+      }
+    ]
+  }
+}

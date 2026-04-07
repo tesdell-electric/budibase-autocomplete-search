@@ -1,0 +1,24 @@
+{
+  "name": "budibase-autocomplete-search",
+  "version": "1.0.0",
+  "description": "Mobile-first autocomplete search for Budibase — calls queries directly, no premium data provider required.",
+  "keywords": [
+    "budibase-plugin"
+  ],
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite build --watch"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^3.1.2",
+    "svelte": "^4.2.19",
+    "vite": "^5.4.11",
+    "vite-plugin-css-injected-by-js": "^4.0.1"
+  },
+  "peerDependencies": {
+    "@budibase/bbui": "*",
+    "svelte": "^4.0.0"
+  }
+}
