@@ -1,6 +1,6 @@
 {
   "name": "autocomplete-search",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Mobile-first searchable autocomplete for Budibase — calls queries directly, no premium data provider needed.",
   "keywords": ["budibase-plugin"],
   "license": "MIT",
