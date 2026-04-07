@@ -31,7 +31,7 @@
         "type": "text",
         "key": "placeholder",
         "label": "Placeholder Text",
-        "defaultValue": "Search customers…"
+        "defaultValue": "Type at least 3 characters to search…"
       },
       {
         "type": "text",

@@ -23,29 +23,10 @@ export default {
     format: "iife",
     file: "dist/plugin.min.js",
     name: "plugin",
-    globals: {
-      svelte: "svelte",
-      "svelte/internal": "svelte_internal",
-      "svelte/internal/client": "svelte_internal_client",
-      "svelte/store": "svelte_store",
-      "svelte/transition": "svelte_transition",
-      "svelte/animate": "svelte_animate",
-      "svelte/easing": "svelte_easing",
-      "svelte/motion": "svelte_motion",
-      "svelte/events": "svelte_events",
-    },
   },
-  external: [
-    "svelte",
-    "svelte/internal",
-    "svelte/internal/client",
-    "svelte/store",
-    "svelte/transition",
-    "svelte/animate",
-    "svelte/easing",
-    "svelte/motion",
-    "svelte/events",
-  ],
+  // Bundle Svelte into the plugin — Budibase 3.35.x does not expose
+  // Svelte 5 internals as window globals, so we cannot externalize it.
+  external: [],
   plugins: [
     clean,
     svelte({
